@@ -1,3 +1,7 @@
+/*  Ugochuku Nwagbala
+    861116723
+    4/25/15
+*/
 #include "lab3.h"
 
 using namespace std;
