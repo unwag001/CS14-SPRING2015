@@ -75,7 +75,7 @@ void preorder (int arg)
       return;
 }
 
-void sortedTree (int m, int n, int k, priority_queue<pair<int,int> > outSorted)
+void sortedTree (int m, int n, int k, priority_queue<pair<int,int> > &outSorted)
 {
       pair<int,int> coprimePair;
       
@@ -83,11 +83,15 @@ void sortedTree (int m, int n, int k, priority_queue<pair<int,int> > outSorted)
       {
             coprimePair.first = m;
             coprimePair.second = n;
-            printPostorder(2*m -n, m, k);
-            printPostorder(2*m +n, m, k);
-            printPostorder(m + 2*n, n, k);
+            sortedTree(2*m -n, m, k, outSorted);
+            sortedTree(2*m +n, m, k, outSorted);
+            sortedTree(m + 2*n, n, k, outSorted);
+            // coprimePair.first = m;
+            // coprimePair.second = n;
             outSorted.push(coprimePair);
       }
+      
+            //outSorted.push(coprimePair);
       
       // for (unsigned i =0; i < outSorted.size(); i++)
       // {
@@ -104,10 +108,10 @@ void outSortedTree (int arg)
       sortedTree(2,1,arg,output);
       sortedTree(3,1,arg,output);
       
-      for (unsigned i =0; i < outSorted.size(); i++)
+      for (unsigned i =0; i < output.size(); i++)
       {
-            cout << outSorted.top().first << ' ' 
-            << outSorted.top().second << endl;
-            outSorted.pop();
+            cout << output.top().first << ' ' 
+            << output.top().second << endl;
+            output.pop();
       }
 }
