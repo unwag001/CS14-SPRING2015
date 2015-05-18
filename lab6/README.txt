@@ -1,0 +1,2 @@
+a) yes the sort is a stable sort because the elements are only swapped if they are less than the value they are compared to, not if they are equal.
+b) an example would be the last test case with vector v5 because before the sort is called, all items are in order and after the sort is called, the items remain in the same order and no moves are made.
